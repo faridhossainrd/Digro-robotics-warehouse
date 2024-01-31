@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+*{
+	list-style: none;
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background: #ebecf1;
+	color: #bfb9b9;
+}
+
+.wrapper{
+  width: 1000px;
+  height:1400px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.topheader{
+	background: #fff;
+	width: 800px;
+	height: 110px;
+	margin: 20px auto;
+	border-radius: 4px;
+
+}
+
+.logo{
+	width: auto;
+	height: auto;
+	 position:relative;
+	 left:1%;
+	 top:5%;
+}
+.hln{
+  color:#000;
+  margin: 20px 0;
+  width: auto;
+height: auto;
+display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position:absolute;
+left:65%;
+top:2%;
+
+}
+.reglabel{
+  color: #6a119d;
+	font-weight: 600;
+  margin: 20px 0;
+  width: auto;
+height: auto;
+display: inline-block;
+border-radius: 4px;
+box-sizing: border-box;
+position:absolute;
+left:30%;
+top:10%;
+
+}
+.reglabel1{
+  color: #6a119d;
+	font-weight: 500;
+  margin: 20px 0;
+  width: auto;
+height: auto;
+display: inline-block;
+border-radius: 4px;
+box-sizing: border-box;
+position:absolute;
+left:40%;
+top:14%;
+
+}
+
+
+
+        input[type=text], select, textarea {
+          width: 70%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-top: 6px;
+          margin-bottom: 16px;
+          resize: vertical;
+          
+        }
+
+        input[type=submit] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+    
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        .container {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+
+
+         label[for="id_name"] {
+          position: relative;  
+          left:0%;
+           bottom:0%;        
+        } 
+        label {
+          color: #000;      
+        } 
+        
+        input[ name='Name'] {
+          position: relative;  
+          left:2%;
+          top:100%; 
+        }
+        
+        label[for="id_Image"] {
+          
+         
+          position: relative;  
+          right:590px;
+          top:50px;         
+        } 
+
+        input[ name='Image'] {
+          position: relative;  
+          left:9%;
+          top:0px; 
+          margin: 5px;
+        }
+        label[for="id_Desc"] {
+          position: relative;  
+          right:320px;
+          top:80px;         
+        } 
+ 
+        textarea[ name='Desc'] {
+          position: relative;  
+           left:9%;
+           top:10px; 
+           height: 100px;
+        }
+
+
+        label[for="id_Price"] {
+          position: relative;  
+          right:540px;
+          top:20px;         
+        }
+       input[ name='Price'] {
+          position: relative;  
+          right:510px;
+          top:20px;  
+        }
+        label[for="id_Container"] {
+          position: relative;  
+          right:5px;
+           top:25px;    
+        }
+        input[ id='id_Container'] {
+        
+          position: relative;  
+          left:5px;
+           top:25px; 
+           height: 20px;
+           width: 450px;
+        }
+
+        label[for="id_Box"] {
+          position: relative;  
+          right:71%;
+           top:55px;  
+           width: 30%;  
+        }
+        input[ id='id_Box'] {
+        
+          position: relative;  
+          left:5%;
+           bottom:10px; 
+           height: 20px;
+           width: 250px;
+        }
+
+        label[for="id_Percentage"] {
+          position: relative;  
+          right:34%;
+           top:40px;   
+          
+        }
+        input[ id='id_Percentage'] {
+        
+          position: relative;  
+          right:35%;
+           top:40px; 
+           height: 20px;
+           width: 250px;
+           margin: 4% 
+        }
+        
+        
+        
+        label[for="id_Quantity"] {
+          position: absolute;  
+          right:84%;
+          top:89%; 
+          
+        }
+
+        input[name="Quantity"] {
+          position: relative;  
+          left:60px;
+          bottom:10%; 
+          margin: 3%;
+        }
+
+        label[for="id_Date"] {
+          position: absolute;  
+          right:86%;
+          top:94%;    
+        }
+        
+        input[ name='Date'] {
+          position: absolute;  
+          right:62%;
+          top:100%;  
+          width: auto;
+          height: 10px;
+        }
+        
+        input[class="btn btn-danger"] {
+          position: relative;  
+          left:50%;
+          top:00%; 
+          width: auto;
+        }
+        
+        button[class="Container"] {
+          position: absolute;  
+          background-color:  #23856c;
+          color: #f2f2f2;
+          left:73%;
+          bottom:27%; 
+          padding: 5px;
+          border-radius: 6px;
+          width: auto;
+          height:auto ;
+          font-size: medium;
+        }
+       
+        label[name="reg"] {
+          position: relative;  
+          left:320px;
+          bottom:50px;    
+        }
+
+
+.view_item img{
+	width: 75px;
+}
+
+.view_item .amount{
+	color: #000;
+	font-weight: 600;
+	position:absolute;
+	left:40%;
+	bottom:55%;
+}
+.view_item {
+	background: #fff;
+	border: 1px solid #e2efe1;
+	margin: 10px;
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.view_item .title{
+	color: #000;
+	font-weight: 600;
+}
+
+.view_item .content{
+	margin: 10px 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+	color: #080;
+}
+
+
+.grid-view{
+	width: 100%;
+}
+
+.grid-view .view_item {
+	display: inline-block;
+    border: 1px solid #e2efe1;
+    width: 230px;
+    padding: 25px;
+    text-align: center;
+    margin: 10px;
+}
+
+.grid-view .view_item .vi_left{
+	margin-bottom: 10px;
+}

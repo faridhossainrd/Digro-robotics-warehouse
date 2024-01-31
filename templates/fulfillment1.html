@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DigRo</title>
+
+	{% load static %}
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- Mobile Metas -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+	<link rel="stylesheet" href="{% static 'styles2.css' %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+
+<body>
+
+<div class="wrapper">
+
+	<div class="topheader">
+	    
+
+		<div class="logo">
+			{% load static %}
+			<img src=" {% static 'logo.png' %}"  width="100" height="88" alt="logo">
+			
+		</div>
+
+		<label class="hln">Hotline: +880 1790533601</label>
+		
+		
+
+		<div class="alllabl">
+
+		<div class="labl1">
+		<label class="abt1">ITEMS </label>
+		<label class="abt2">PRODUCTS </label>
+		<label class="abt3">AMOUNT </label>
+		</div>
+
+		<div class="labl2">
+			<label class="abt4">ORDERS COMPLETED </label>
+			<label class="abt5">ORDERS PENDING </label>
+			<label class="abt6">ORDERS PROCESSING </label>
+			<label class="abt7">SELLS AMOUNT </label>
+		</div>
+		
+		<div class="labl3">
+			<label class="abt8">{{totalp.Items}} </label>
+			<label class="abt9">{{totalp.Products}}</label>
+			<label class="abt10">৳ {{totalp.Amount}} </label>
+			
+		</div>
+
+		<div class="labl4">
+			<label class="abt12">{{totalp.order_complete}} </label>
+			<label class="abt13">{{totalp.order_pending}}</label>
+			<label class="abt14">{{totalp.order_processing}} </label>
+			<label class="abt15">৳ {{totalp.Sells_amount}} </label>
+		</div>
+		
+	</div>
+	
+	
+		
+		<input type="text" class="serch" placeholder=" Search.." id="serch1" name="serchid">
+		<button class="btnl"><i class="fa fa-search"></i></button>
+	
+		<div class ="movetxt1">
+			<div id="movetxt">Welcome to 'DigRo' AI & IoT Base Robot Warehouse and Fulfillment Solution.</div>
+			</div>
+		
+	</div>
+	
+	  
+	<div class="view_main">
+		
+	<div class="view_wrap grid-view">
+
+		{% for dest in dests %}
+
+			<div class="view_item">
+				<div class="vi_left">
+					<img src="{{dest.Image.url}}" alt="">
+				</div>
+				<div class="vi_right">
+					
+					<p class="title" id=idf{{dest.id}}{{dest.product_data.name}}>{{dest.product_data.name}}</p>
+					<p class="content" id=amf{{dest.id}}{{dest.product_data.name}}>৳ {{dest.product_data.Price}} TK</p> 
+	
+					<div class="labl5">
+						<label class="abt16">0</label>
+						<label class="abt17">0</label>
+						<label class="abt18">0</label>
+						<label class="abt19">0</label>
+					</div>
+					 
+					<input type="text" class="box" id=qnf{{dest.id}}{{dest.product_data.name}}  value="1" >
+					<p class="Availability">Availability {{dest.product_data.Quantity}}</p>
+				
+				<div class="labl7">
+					<div class="btn" id=bnf{{dest.id}}{{dest.product_data.name}}>GET</div>
+					<div class="adbtn" onClick="parent.location='regf/'"  id=addf{{dest.id}}{{dest.product_data.name}}>Add</div>
+					
+				</div>
+				</div>
+			</div>
+
+			
+			{% endfor %}
+
+			 
+			</div>
+
+
+
+		</div>
+		
+	</div>
+	
+<div class="cartsdatail">
+
+	<div class="view_item">
+
+		<div class="vi_left">
+
+	{% load static %}
+  <img src="{% static  'cart.png' %}"  width="60" height="50">
+
+  <label class="tems" id="it" >0</label>
+</div>
+  <div class="vi_left">
+  <label class="amount" id="am">৳ 0</label>
+</div>
+<div class="vi_left"> 
+  <input type="submit" class="submit" id="submitid" value="Submit Orders" >  
+  <button class="bCancel" id="Cancel">Cancel</button>
+  <button class="bCancel"  onClick="parent.location='order_process/'" id="Order_pro">Order Process</button>
+  <button class="loadp"  onClick="parent.location='load/'" id="loadprod">Load Product</button>
+  <button class="loadp"  onClick="parent.location='regf/'" id="addnew">Add New Product</button>
+  
+
+
+		</div>
+	</div>
+  
+</div>
+
+</div>
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<label class={{ csrf_token }} id="csr" ></label>
+<script src="{% static 'scripts_fulfillment.js' %}"></script>
+
+{% block content %}{% endblock %}
+</body>
+</html>

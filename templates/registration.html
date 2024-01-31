@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>DigRo</title>
+
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'style7.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<script>
+
+    function read_container(){
+
+        $.ajax({
+
+            type: "POST",
+            url: 'con_n/',
+            data: { csrfmiddlewaretoken: '{{ csrf_token }}' , 'read_con': '0' },  
+            success: function(data) {
+               
+                if(data['con_n']=='0')
+                {
+                    console.log(data['con_n'])
+                    document.getElementById("id_Container").value = "please wait.. & try again";
+                }
+                else
+                {
+                    document.getElementById("id_Container").value = data["con_n"];
+                }
+                
+            }
+        });
+
+    }
+
+
+</script>
+
+
+
+</head>
+
+<body>
+ <div class="wrapper">
+ 
+        <div class="topheader">
+
+            <div class="logo">
+                {% load static %}
+                <img src=" {% static 'logo.png' %}"  width="90" height="100" alt="logo">
+            </div>
+            <label class="hln">Hotline: +880 1790533601</label>
+            <label class="reglabel">Welcome to 'DigRo' Robotics Warehouse & Fulfillment Center</label>
+            <label class="reglabel1">You Can Registrar Products Here</label>
+
+        </div>
+
+    
+    {% block content %}
+    <div class="container">
+    
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="btn btn-danger" value="Upload">
+        </form>
+        <button type="button" class="Container" onclick="read_container();">Read Container</button>
+
+     </div>
+
+    {% if creg_ck %}
+    <label name="reg">Registration Success</label>
+    {% else %}
+    <label name="reg">Registration Not Success</label>
+    {% endif %}
+
+</div>
+{% endblock %}
+</body>
+
+</html>

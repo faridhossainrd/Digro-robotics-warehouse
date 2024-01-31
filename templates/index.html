@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DigRo</title>
+
+	{% load static %}
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="{% static 'styles1.css' %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+
+<body>
+
+<div class="wrapper">
+
+	<div class="topheader">
+	  
+		<div class="logo">
+			{% load static %}
+			<img src=" {% static 'logo.png' %}"  width="100" height="88" alt="logo">
+			
+		</div>
+		<label class="hln">Hotline: +880 1790533601</label>
+	
+		<div class="labl">
+
+		<label class="abt1">Home</label>
+		 
+		<label class="abt2">About</label>
+		<label class="abt3">My Account</label>
+		</div>
+		
+		<input type="text" class="serch" placeholder=" Search.." id="serch1" name="serchid">
+		<button class="btnl"><i class="fa fa-search"></i></button>
+		
+	</div>
+	
+	 <div class ="movetxt1">
+		<div id="movetxt">Welcome to 'DigRo' Robot warehouse & Fulfillment Center</div>
+		</div>
+	<div class="view_main">
+		
+	<div class="view_wrap grid-view">
+
+		{% for dest in dests %}
+			<div class="view_item">
+				<div class="vi_left">
+					<img src="{{dest.Image.url}}" alt="">
+				</div>
+				<div class="vi_right">
+					
+					<p class="title" id=idf{{dest.id}}{{dest.product_data.name}}>{{dest.product_data.name}}</p>
+					<p class="content" id=amf{{dest.id}}{{dest.product_data.name}}>৳ {{dest.product_data.Price}} TK</p> 
+					<input type="text" class="box" id=qnf{{dest.id}}{{dest.product_data.name}}  value="1" >
+					<p class="Availability">Availability {{dest.product_data.Quantity}}</p>
+					<div class="btn" id=bnf{{dest.id}}{{dest.product_data.name}}>Add to Card</div>
+				</div>
+			</div>
+			 
+			{% endfor %}
+		</div>
+	</div>
+
+<div class="cartsdatail">
+	{% load static %}
+  <img src="{% static  'cart.png' %}"  width="60" height="50">
+  <input type="submit" class="submit" id="submitid" value="Submit Orders" >  
+  <button class="bCancel" id="Cancel">Cancel</button>
+  <label class="tems" id="it" >0</label>
+  <label class="amount" id="am">৳ 0</label>
+  
+</div>
+
+</div>
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<label class={{ csrf_token }} id="csr" ></label>
+<script src="{% static 'scripts.js' %}"></script>
+
+{% block content %}{% endblock %}
+</body>
+</html>

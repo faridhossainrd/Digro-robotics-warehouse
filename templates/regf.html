@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>DigRo</title>
+
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'regf.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+<script>
+     
+function myFunction() {
+  var x = " Height: " + screen.height + "px" + "  width: " + screen.width + "px"  ;
+  document.getElementById("demo").innerHTML = x;
+}
+//idimagesh
+
+function imgset(event) {
+     
+    var selectedFile = event.target.files[0];
+  var reader = new FileReader();
+
+  var imgtag = document.getElementById("idimagesh");
+  imgtag.title = selectedFile.name;
+
+  reader.onload = function(event) {
+    imgtag.src = event.target.result;
+  };
+
+  reader.readAsDataURL(selectedFile);
+
+
+}
+
+    function read_container(){
+
+        $.ajax({
+
+            type: "POST",
+            url: 'con_n/',
+            data: { csrfmiddlewaretoken: '{{ csrf_token }}' , 'read_con': '0' },  
+            success: function(data) {
+               
+                if(data['con_n']=='0')
+                {
+                    console.log(data['con_n'])
+                    document.getElementById("id_Container").value = "please wait.. & try again";
+                }
+                else
+                {
+                    document.getElementById("id_Container").value = data["con_n"];
+                }
+                
+            }
+        });
+
+    }
+
+
+</script>
+
+
+
+</head>
+
+<body>
+    {% load static %}
+ <div class="wrapper" >
+ 
+        <div class="topheader">
+
+            <div class="logo">
+               
+                <img src=" {% static 'logo.png' %}"  width="100" height="88" alt="logo">
+            </div>
+
+            <div  class="msinfo" > 
+               <label class="massage">Welcome to 'DigRo' Robot Warehouse & Fulfillment Center</label>   
+               <label class="info">You Can Registrar Products Here</label>  
+                
+            </div>
+
+            <div class="dev_helpe"> <label class="help_line">Hotline: +880 1790533601</label>  </div> 
+
+        </div>
+
+
+      
+       <div class="container">
+    
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+            <dev class="all_form"> 
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Name </label> 
+                    <input type="text" name="name" required="" id="name_id" maxlength="100"> 
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Details </label> 
+                    <textarea name="Details" cols="40" rows="10" required="" id="id_Desc"></textarea>
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Price </label> 
+                    <input type="number" name="Price" required  id="Price_id" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)"> TK </label> 
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Quantity </label> 
+                    <input type="number" name="Quantity" required  id="Quantity_id" > 
+                </div>
+
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Weight </label> 
+                    <input type="number" name="Weight" required  id="Weight_id" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">G</label> 
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Size </label> 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  W  </label> 
+                    <input type="number" name="s_w" required  id="w_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  H  </label> 
+                    <input type="number" name="s_h" required  id="h_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  L  </label> 
+                    <input type="number" name="s_l" required  id="l_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">CM </label> 
+
+                </div>
+                
+                
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">MFG_Date:</label> 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  day  </label> 
+                    <input type="number" name="mdday" required  id="day_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  Month  </label> 
+                    <input type="number" name="mdmonth" required  id="M_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  Year  </label> 
+                    <input type="number" name="mdyear" required  id="Y_id" > 
+
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">EXP_Date:</label> 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  day  </label> 
+                    <input type="number" name="edday" required  id="day_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  Month  </label> 
+                    <input type="number" name="edmonth" required  id="M_id" > 
+
+                    <label class="name_label" style="color:rgb(15, 15, 15)">  Year  </label> 
+                    <input type="number" name="edyear" required  id="Y_id" > 
+
+                </div>
+
+                <div  class="form_items" > 
+                    <label class="name_label" style="color:rgb(15, 15, 15)">Image </label> 
+                    <input type="file" name="Image" onchange="imgset(event)"  accept="image/*"  id="id_Image" alt="">
+                    <label class="name_label" style="color:rgb(15, 15, 15)"> Or </label> 
+                     
+                    <button type="button"  class="camera" >Camera</button>
+                    <img  name="imagesh" id="idimagesh" width="75"  >
+
+                </div>
+
+                <div  class="form_items" > 
+                <label class="name_label" style="color:rgb(15, 15, 15)">category </label> 
+                <select name="category" id="category_id">
+                  <option value="Electronic Devices">Electronic Devices</option>
+                  <option value="Health & Beauty">Health & Beauty</option>
+                  <option value="Men's Fashion">Men's Fashion</option>
+                  <option value="Women's Fashion">Women's Fashion</option>
+                  <option value="Medicine">Medicine</option>
+                  <option value="Food">Food</option> 
+                  <option value="Office Products">Office Products</option>
+                </select>
+            </div>
+            
+            <div  class="form_items" > 
+                <label class="name_label" style="color:rgb(11, 88, 140)">Registration_Status: </label> 
+                <label class="name_label" id="reg_status" style="color:rgb(175, 27, 52)"> {{regs}} </label> 
+            </div>
+              
+            </dev>
+            <dev class="submit_"> 
+            <input type="submit" class="btn btn-danger" value="Upload">
+           </dev>
+            </form>
+           
+
+       </div>
+      
+
+</div>
+
+</body>
+
+</html>

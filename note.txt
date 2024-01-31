@@ -1,0 +1,10 @@
+
+lab
+python manage.py runsslserver 192.168.0.105:9000
+python manage.py runserver 192.168.0.105:8000
+
+phone
+python manage.py runsslserver 192.168.43.65:9000
+
+ideb
+python manage.py runsslserver 192.168.56.219:9000

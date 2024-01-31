@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Data</title>
+    {% load static %}
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <script>
+    
+      var id=0;
+    var text="hi";
+       function request(){
+
+                    $.ajax({
+                        type: "GET",
+                        url: 'order_res/',
+                        data: { csrfmiddlewaretoken: '{{ csrf_token }}' , text: text },  
+                        success: function(data) {
+                            document.getElementById("it").innerHTML =data["orderid"]
+                        }
+                    });
+
+                }
+       function request_for_robot(){
+
+                $.ajax({
+                    type: "POST",
+                    url: 'request_from_robot/',
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}' , 'read_con': "howare" },  
+                    success: function(data) {
+                        document.getElementById("it").innerHTML =data
+                    }
+                });
+
+                }
+
+       function comliete(){
+                    $.ajax({
+
+                        type: "POST",
+                        url: 'order_com/',
+                        data: { csrfmiddlewaretoken: '{{ csrf_token }}' , 'orderid': document.getElementById("it").innerHTML },  
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+ 
+                }
+        
+         
+                function continar(){
+                    $.ajax({
+
+                        type: "POST",
+                        url: 'con_n/',
+                        data: { csrfmiddlewaretoken: '{{ csrf_token }}' , 'read_con': "123345" },  
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+ 
+                }
+  
+   </script>
+
+</head>
+<body>
+    
+    <label class="tems" id="it" ></label>
+    <button type="button" onclick="request();">Request</button>
+    <button type="button" onclick="comliete();">Comlete!</button>
+    <button type="button" onclick="continar();">continar!</button>
+    <button type="button" onclick="request_for_robot();">request_from_robot!</button>
+    <label class="tem2s" id="it4" >  differr    </label>
+
+</body>
+</html>
